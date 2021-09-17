@@ -8,7 +8,7 @@ ec2 = boto3.resource('ec2', region_name ='us-west-1')
 
 vpcName = "ProductionENVtest"
 cidr_block = "192.168.1.0/24"
-#easy way to allocate values to the VPC
+#easy way to allocate arguements to the code without retyping etc.
 
 vpc = ec2.create_vpc(CidrBlock=cidr_block)
 vpc.create_tags(
