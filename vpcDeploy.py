@@ -3,7 +3,7 @@ import boto3
 
 client = boto3.client('ec2', region_name ='us-west-1')
 ec2 = boto3.resource('ec2', region_name ='us-west-1')
-# aws_access_key_id='AWS_ACCESS_KEY_ID', aws_secret_access_key='AWS_SECRET_ACCESS_KEY' parameters needed to run.
+# aws_access_key_id='AWS_ACCESS_KEY_ID', aws_secret_access_key='AWS_SECRET_ACCESS_KEY' parameters needed to run only if your CLI wasn't set already.
 
 
 vpcName = "ProductionENVtest"
