@@ -5,6 +5,7 @@ Current function:
 Single VPC
 4 subnets attached to VPC
 1 IG gateway created and attached to VPC
+Creating a route table with 2 routes. private and public
 
 Future:
 Routing table for 2 public and 2 private in two separate AZ
