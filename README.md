@@ -1,7 +1,7 @@
 # aws-VPC-maker
 A simple script to create a single VPC in two AZ with 4 subnets using boto3
 
-Current function:
+<h2>Current function:</hj>
 Single VPC
 4 subnets attached to VPC
 1 IG gateway created and attached to VPC
@@ -11,7 +11,7 @@ Current will connect IG to all the subnets, which needs to be fixed.
 I've also added a parameters file that can be edited so that the deployment can be more variable to the location and AZ the user would like to use.
 
 
-Future:
+<h2>Future:</h2>
 Elastic IP for private subnets
 
 Note:
