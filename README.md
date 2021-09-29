@@ -6,9 +6,12 @@ Single VPC
 4 subnets attached to VPC
 1 IG gateway created and attached to VPC
 Creating a route table with 2 routes. private and public
+Current will connect IG to all the subnets, which needs to be fixed.
+
+I've also added a parameters file that can be edited so that the deployment can be more variable to the location and AZ the user would like to use.
+
 
 Future:
-Routing table for 2 public and 2 private in two separate AZ
 Elastic IP for private subnets
 
 Note:
