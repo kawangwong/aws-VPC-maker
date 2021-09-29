@@ -1,15 +1,12 @@
 import boto3
+from namingParameters import *
 
-
-client = boto3.client('ec2', region_name ='us-west-1')
-ec2 = boto3.resource('ec2', region_name ='us-west-1')
+client = boto3.client('ec2', region_name = regionlocation)
+ec2 = boto3.resource('ec2', region_name = regionlocation)
 ## aws_access_key_id='AWS_ACCESS_KEY_ID', aws_secret_access_key='AWS_SECRET_ACCESS_KEY' parameters needed to run.
 
 route_table = ec2.RouteTable("id")
 
-vpcName = "ProductionENVtest"
-cidr_block = "192.168.1.0/24"
-##easy way to allocate values to the VPC
 
 vpc1 = ec2.create_vpc(CidrBlock=cidr_block)
 vpc1.create_tags(
@@ -49,8 +46,8 @@ subnet1 = ec2.create_subnet(
         },
     ],
     VpcId = vpcIDcode,
-    CidrBlock ='192.168.1.0/26',
-    AvailabilityZone ='us-west-1a')
+    CidrBlock =cidr1,
+    AvailabilityZone =az1)
 
 subnet2 = ec2.create_subnet(
     TagSpecifications = [
@@ -65,8 +62,8 @@ subnet2 = ec2.create_subnet(
         }
     ],
     VpcId = vpcIDcode,
-    CidrBlock='192.168.1.64/26',
-    AvailabilityZone ='us-west-1a')
+    CidrBlock= cidr2,
+    AvailabilityZone =az2)
 
 subnet3 = ec2.create_subnet(
         TagSpecifications = [
@@ -81,8 +78,8 @@ subnet3 = ec2.create_subnet(
         }
     ],
     VpcId = vpcIDcode,
-    CidrBlock='192.168.1.128/26',
-    AvailabilityZone='us-west-1c')
+    CidrBlock=cidr3,
+    AvailabilityZone=az3)
 
 subnet4 = ec2.create_subnet(
         TagSpecifications = [
@@ -97,8 +94,8 @@ subnet4 = ec2.create_subnet(
         }
     ],
     VpcId = vpcIDcode,
-    CidrBlock = '192.168.1.192/26',
-    AvailabilityZone = 'us-west-1c')
+    CidrBlock=cidr4,
+    AvailabilityZone=az4)
 
 ## creates 4 subnets
 
@@ -109,7 +106,7 @@ internet_gateway = ec2.create_internet_gateway(
             "Tags": [
                 {
                 "Key": "Name",
-                "Value": "ig-west"
+                "Value": igName,
                 },
             ]
         }
@@ -122,7 +119,7 @@ igData = client.describe_internet_gateways(
         {
             'Name': 'tag:Name',
             'Values': [
-                'ig-west',
+                igName,
             ]
         },
     ],
